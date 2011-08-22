@@ -16,7 +16,7 @@
     <tr id="<%= dom_id(image) %>">
       <td>
         <span class="handle"></span>
-        <%= link_to(image_tag(image.attachment.url(:large)), image.attachment.url(:product)) %>
+        <%= link_to(image_tag(image.attachment.url(:large)), image.attachment.url(:original)) %>
       </td>
       <% if @product.has_variants? %>
         <td><%= t('all') %></td>
@@ -33,7 +33,7 @@
   <% @product.variants.each do |variant| %>
     <% variant.showcases.each do |image| %>
       <tr id="<%= dom_id(image) %>">
-        <td><span class="handle"></span><%= link_to(image_tag(image.attachment.url(:large)), image.attachment.url(:product)) %></td>
+        <td><span class="handle"></span><%= link_to(image_tag(image.attachment.url(:large)), image.attachment.url(:original)) %></td>
         <% if @product.has_variants? %>
           <td><%= variant.options_text %></td>
         <% end %>
