@@ -5,12 +5,8 @@ class Showcase < Asset
     :default_style => :large,
     :url => "/assets/showcase/:id/:style/:basename.:extension",
     :path => ":rails_root/public/assets/showcase/:id/:style/:basename.:extension",
-    :storage => Rails.env == 'production' ? 's3' : 'filesystem',
-    :s3_credentials => {
-      :access_key_id => ENV['S3_KEY'],
-      :secret_access_key => ENV['S3_SECRET']
-    },
-    :bucket => ENV['S3_BUCKET']
+    :storage => 's3',
+    :s3_credentials => Rails.root.join('config', 's3.yml')
     
   belongs_to :viewable, :polymorphic => true
   acts_as_list :scope => :viewable
