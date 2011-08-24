@@ -3,8 +3,7 @@ class Showcase < Asset
   has_attached_file :attachment, 
     :styles => { :large => '475x275>' },
     :default_style => :large,
-    :url => "/assets/showcase/:id/:style/:basename.:extension",
-    :path => ":rails_root/public/assets/showcase/:id/:style/:basename.:extension",
+    :path => "/assets/showcase/:id/:style/:basename.:extension",
     :storage => 's3',
     :s3_credentials => Rails.root.join('config', 's3.yml')
     
